@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "br.ucsal.pdm.unebrasil"
@@ -30,7 +30,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.navigation:navigation-runtime:2.3.0'
+    implementation 'androidx.navigation:navigation-runtime:2.3.5'
 
     // Room components
     def room_version = "2.3.0"
@@ -40,7 +40,7 @@ dependencies {
 
     // Lifecyle components
     def lifecycle_version = "2.3.1"
-    def arch_version = "2.1.0"
+    //def arch_version = "2.1.0"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
@@ -54,6 +54,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.3.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

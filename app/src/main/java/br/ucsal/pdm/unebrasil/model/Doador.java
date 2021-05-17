@@ -12,6 +12,10 @@ public class Doador {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+    @ColumnInfo(name="senha")
+    private String senha;
+
+
     @ColumnInfo(name="cpf")
     private String cpf;
 
@@ -29,12 +33,14 @@ public class Doador {
 
     }
 
-    public Doador  (String cpf, String nome, String email, String telefone) {
+    public Doador  (String senha, String cpf, String nome, String email, String telefone) {
+        this.senha = senha;
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
     }
+
 
     public int getId () {
         return id;
