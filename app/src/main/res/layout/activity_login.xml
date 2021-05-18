@@ -6,59 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".view.LoginActivity">
 
+    <ImageView
+        android:id="@+id/iv_login_imageId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tl_login_cpfId"
+        android:id="@+id/edt_login_cpfId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="CPF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/iv_login_imageId">
 
-        <EditText
-            android:id="@+id/edit_login_cpf"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtinput_login_cpfId"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number" />
-
-
+            android:layout_height="wrap_content"
+            android:hint="CPF" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tl_login_senhaId"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_login_senhaId"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tl_login_cpfId">
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_cpfId">
 
-        <EditText
-            android:id="@+id/edit_login_senha"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtinput_login_senhaId"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPassword"
-            />
-
-    </com.google.android.material.textfield.TextInputEditText>
-
+            android:layout_height="wrap_content"
+            android:hint="Senha" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/tv_login_esquecisenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Esqueci minha senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tl_login_senhaId" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_senhaId" />
 
     <Button
         android:id="@+id/button_login_entrar"
@@ -73,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login_esquecisenha" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_login_doador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -84,21 +88,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_entrar" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="603dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_login_benef"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -107,8 +98,7 @@
         android:text="Cadastrar Beneficiário"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
+        app:layout_constraintTop_toBottomOf="@+id/button_login_doador" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
