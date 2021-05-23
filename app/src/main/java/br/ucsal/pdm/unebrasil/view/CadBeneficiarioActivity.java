@@ -1,8 +1,10 @@
-package br.ucsal.pdm.unebrasil;
+package br.ucsal.pdm.unebrasil.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.ucsal.pdm.unebrasil.R;
 
 public class CadBeneficiarioActivity extends AppCompatActivity {
 

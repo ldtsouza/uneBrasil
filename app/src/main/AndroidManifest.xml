@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UneBrasil">
-        <activity android:name=".CadDoadorActivity"/>
-        <activity android:name=".CadBeneficiarioActivity" />
+        <activity android:name=".view.LoginActivity"/>
+        <activity android:name=".view.CadDoadorActivity" />
+        <activity android:name=".view.CadBeneficiarioActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
-        <activity android:name=".view.MainActivity"/>
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
