@@ -1,4 +1,4 @@
-package br.ucsal.pdm.unebrasil.repository;
+package br.ucsal.pdm.unebrasil.repository.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -17,14 +17,13 @@ public interface BeneficiarioDAO {
     @Insert
     void insere(Beneficiario... beneficiario);
 
-    @Query ("SELECT * FROM beneficiario")
-    LiveData<List<Beneficiario>> obterLista();
+    @Query("SELECT * FROM Beneficiario")
+    LiveData<List<Beneficiario>> obterTodos();
 
     @Update
     void atualize(Beneficiario... beneficiario);
 
     @Delete
-    void excluir(Beneficiario... beneficiario);
-
+    void delete(Beneficiario... beneficiario);
 
 }

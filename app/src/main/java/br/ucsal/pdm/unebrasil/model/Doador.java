@@ -1,7 +1,7 @@
 package br.ucsal.pdm.unebrasil.model;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
@@ -9,106 +9,118 @@ import java.util.Objects;
 @Entity
 public class Doador {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey (autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name="senha")
-    private String senha;
-
-
-    @ColumnInfo(name="cpf")
     private String cpf;
 
-    @ColumnInfo(name="nome")
     private String nome;
 
-    @ColumnInfo(name="email")
     private String email;
 
-    @ColumnInfo(name="telefone")
-    private String telefone;
+    private String celular;
 
-    public Doador () {
+    private String senha;
 
+    private String data;
 
+    public Doador() {
     }
 
-    public Doador  (String senha, String cpf, String nome, String email, String telefone) {
-        this.senha = senha;
+    @Ignore
+    public Doador(String cpf, String nome, String email, String celular, String senha) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
+        this.celular = celular;
+        this.senha = senha;
     }
 
-
-    public int getId () {
+    public int getId() {
         return id;
     }
 
-    public void setId (int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getCpf () {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf (String cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public String getNome () {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome (String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getEmail () {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail (String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getTelefone () {
-        return telefone;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setTelefone (String telefone) {
-        this.telefone = telefone;
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass () != o.getClass ()) return false;
-        Doador  that = (Doador) o;
-        return id == that.id &&
-                Objects.equals (cpf, that.cpf) &&
-                Objects.equals (nome, that.nome) &&
-                Objects.equals (email, that.email) &&
-                Objects.equals (telefone, that.telefone);
+        if (o == null || getClass() != o.getClass()) return false;
+        Doador doador = (Doador) o;
+        return id == doador.id &&
+                Objects.equals(cpf, doador.cpf) &&
+                Objects.equals(nome, doador.nome) &&
+                Objects.equals(email, doador.email) &&
+                Objects.equals(celular, doador.celular) &&
+                Objects.equals(senha, doador.senha) &&
+                Objects.equals(data, doador.data);
     }
 
     @Override
-    public int hashCode () {
-        return Objects.hash (id, cpf, nome, email, telefone);
+    public int hashCode() {
+        return Objects.hash(id, cpf, nome, email, celular, senha, data);
     }
 
     @Override
-    public String toString () {
-        return "Doador {" +
+    public String toString() {
+        return "Doador{" +
                 "id=" + id +
                 ", cpf='" + cpf + '\'' +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
+                ", celular='" + celular + '\'' +
+                ", senha='" + senha + '\'' +
+                ", data='" + data + '\'' +
                 '}';
     }
-
-
 }

@@ -1,107 +1,101 @@
 package br.ucsal.pdm.unebrasil.model;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-
 @Entity
 public class Beneficiario {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey (autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name="cpf")
     private String cpf;
 
-    @ColumnInfo(name="nome")
     private String nome;
 
-    @ColumnInfo(name="email")
     private String email;
 
-    @ColumnInfo(name="telefone")
-    private String telefone;
+    private String celular;
 
-    public Beneficiario () {
-
-
+    public Beneficiario() {
     }
 
-    public Beneficiario (String cpf, String nome, String email, String telefone) {
+    @Ignore
+    public Beneficiario(String cpf, String nome, String email, String celular) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
+        this.celular = celular;
     }
 
-    public int getId () {
+    public int getId() {
         return id;
     }
 
-    public void setId (int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getCpf () {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf (String cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public String getNome () {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome (String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getEmail () {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail (String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getTelefone () {
-        return telefone;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setTelefone (String telefone) {
-        this.telefone = telefone;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass () != o.getClass ()) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Beneficiario that = (Beneficiario) o;
         return id == that.id &&
-                Objects.equals (cpf, that.cpf) &&
-                Objects.equals (nome, that.nome) &&
-                Objects.equals (email, that.email) &&
-                Objects.equals (telefone, that.telefone);
+                cpf.equals(that.cpf) &&
+                nome.equals(that.nome) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(celular, that.celular);
     }
 
     @Override
-    public int hashCode () {
-        return Objects.hash (id, cpf, nome, email, telefone);
+    public int hashCode() {
+        return Objects.hash(id, cpf, nome, email, celular);
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         return "Beneficiario{" +
                 "id=" + id +
                 ", cpf='" + cpf + '\'' +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
+                ", celular='" + celular + '\'' +
                 '}';
     }
 }

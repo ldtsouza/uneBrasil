@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ucsal.pdm.unebrasil">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UneBrasil">
-        <activity android:name=".view.LoginActivity"/>
-        <activity android:name=".view.CadDoadorActivity" />
         <activity android:name=".view.CadBeneficiarioActivity" />
+        <activity android:name=".view.CadDoadorActivity" />
+        <activity android:name=".view.DoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
+        <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.SplashActivity">
             <intent-filter>

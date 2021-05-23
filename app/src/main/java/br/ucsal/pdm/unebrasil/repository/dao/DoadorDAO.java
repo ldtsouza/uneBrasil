@@ -1,4 +1,4 @@
-package br.ucsal.pdm.unebrasil.repository;
+package br.ucsal.pdm.unebrasil.repository.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -13,19 +13,17 @@ import br.ucsal.pdm.unebrasil.model.Doador;
 
 @Dao
 public interface DoadorDAO {
+
     @Insert
     void insere(Doador... doador);
 
-    @Query("SELECT * FROM doador")
-    LiveData<List<Doador>> obterLista();
+    @Query("SELECT * FROM Doador")
+    LiveData<List<Doador>> obterTodos();
 
     @Update
     void atualize(Doador... doador);
 
     @Delete
-    void excluir(Doador... doador);
-
-
-
+    void delete(Doador... doador);
 
 }
