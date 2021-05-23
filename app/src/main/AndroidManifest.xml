@@ -17,7 +17,9 @@
         <activity android:name=".view.EsqueciSenhaActivity" />
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.SplashActivity">
+        <activity android:name=".view.SplashActivity"
+           android:theme="@style/Theme.AppCompat.TelaCheia">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
