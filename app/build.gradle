@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "br.ucsal.pdm.unebrasil"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -58,11 +58,11 @@ dependencies {
     // Navigation components
     def nav_version = "2.3.5"
 
-    implementation "androidx.navigation:navigation-fragment:$nav_version"
-    implementation "androidx.navigation:navigation-ui:$nav_version"
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
-    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
-    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
+//    implementation "androidx.navigation:navigation-fragment:$nav_version"
+//    implementation "androidx.navigation:navigation-ui:$nav_version"
+//    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+//    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+//    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
 
     // Básicos components
     implementation 'androidx.appcompat:appcompat:1.2.0'
