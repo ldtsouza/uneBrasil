@@ -15,6 +15,7 @@
         <activity android:name=".view.CadDoadorActivity" />
         <activity android:name=".view.DoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
+        <activity android:name=".view.ListaBenefActivity"/>
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.SplashActivity"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import br.ucsal.pdm.unebrasil.R;
+import br.ucsal.pdm.unebrasil.view.CadBeneficiarioActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicializacaoDoAdapter();
-        configurarNovaDoacao();
+        efetuarNovaDoacao();
     }
 
     @Override
@@ -35,16 +35,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_sair) {
-            return true;
+
+        switch (item.getItemId()) {
+            case R.id.action_beneficiarios:
+                startActivity(new Intent(this, ListaBenefActivity.class));
+                return true;
+            case R.id.action_instituicao:
+                startActivity(new Intent(this, DadosIntituicaoActivity.class));
+                return true;
+            case R.id.action_sair:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     public void inicializacaoDoAdapter() {
         RecyclerView recyclerView = findViewById(R.id.main_doador_recyclerview);
-        CustomAdapter customAdapter = new CustomAdapter(new CustomAdapter.DoacaoDiff());
-        recyclerView.setAdapter(customAdapter);
+        MainCustomAdapter mainCustomAdapter = new MainCustomAdapter(new MainCustomAdapter.DoacaoDiff());
+        recyclerView.setAdapter(mainCustomAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, true));
 
         viewModel = new ViewModelProvider(this,
@@ -52,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 .get(MainViewModel.class);
 
         viewModel.getDoacoes().observe(this, doacoes -> {
-            customAdapter.submitList(doacoes);
+            mainCustomAdapter.submitList(doacoes);
         });
     }
 
-    private void configurarNovaDoacao() {
+    private void efetuarNovaDoacao() {
         FloatingActionButton botaoNovaDoacao = findViewById(R.id.main_doador_botao);
         botaoNovaDoacao.setOnClickListener(view -> abreFomularioAdicionarDoacao());
     }

@@ -23,9 +23,6 @@ public class MainViewModel extends AndroidViewModel {
 
     public MainViewModel(@NonNull Application application) {
         super(application);
-        repositorioBeneficiario = new RepositorioBeneficiario(application);
-        beneficiarios = repositorioBeneficiario.getBeneficiariosAll();
-
         repositorioDoacao = new RepositorioDoacao(application);
         doacoes = repositorioDoacao.getDoacoesAll();
     }
@@ -34,15 +31,4 @@ public class MainViewModel extends AndroidViewModel {
         return doacoes;
     }
 
-    public LiveData<List<Beneficiario>> getBeneficiarios() {
-        return beneficiarios;
-    }
-
-    public void inserir(Beneficiario beneficiario) {
-        repositorioBeneficiario.insert(beneficiario);
-    }
-
-    public void excluir(Beneficiario beneficiario) {
-        repositorioBeneficiario.delete(beneficiario);
-    }
 }

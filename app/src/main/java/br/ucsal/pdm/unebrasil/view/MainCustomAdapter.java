@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doacao;
 
-public class CustomAdapter extends ListAdapter<Doacao, CustomAdapter.CustomViewHolder> {
+public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.CustomViewHolder> {
 
-    public CustomAdapter(@NonNull DiffUtil.ItemCallback<Doacao> diff) {
+    public MainCustomAdapter(@NonNull DiffUtil.ItemCallback<Doacao> diff) {
         super(diff);
     }
 
@@ -28,7 +28,7 @@ public class CustomAdapter extends ListAdapter<Doacao, CustomAdapter.CustomViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainCustomAdapter.CustomViewHolder holder, int position) {
         holder.getTextViewBeneficiario().setText(getItem(position).getBeneficiario());
         holder.getTextViewData().setText(getItem(position).getDataDoacao());
         holder.getTextViewTipo().setText(getItem(position).getTipoDoacao());

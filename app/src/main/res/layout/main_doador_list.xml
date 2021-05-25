@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:background="#9F9F9F">
+    android:background="#008037">
 
     <TextView
         android:id="@+id/main_doador_list_tit_benef"

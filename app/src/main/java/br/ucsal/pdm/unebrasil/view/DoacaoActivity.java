@@ -75,14 +75,14 @@ public class DoacaoActivity extends AppCompatActivity {
     }
 
     public void inicializacaoDoAdapter() {
-        CustomAdapter customAdapter = new CustomAdapter(new CustomAdapter.DoacaoDiff());
+        MainCustomAdapter mainCustomAdapter = new MainCustomAdapter(new MainCustomAdapter.DoacaoDiff());
 
         doacaoViewModel = new ViewModelProvider(this,
                 ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
                 .get(DoacaoViewModel.class);
 
         doacaoViewModel.getDoacoes().observe(this, doacoes -> {
-            customAdapter.submitList(doacoes);
+            mainCustomAdapter.submitList(doacoes);
         });
     }
 
