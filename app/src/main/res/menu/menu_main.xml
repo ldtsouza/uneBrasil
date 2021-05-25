@@ -13,9 +13,9 @@
         android:title="Instituição"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_sair"
         android:orderInCategory="100"
-        android:title="Logout"
+        android:title="Sair"
         app:showAsAction="never" />
 
 </menu>

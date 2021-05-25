@@ -86,8 +86,8 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
-        android:text="Cadastrar Doador"
         android:onClick="cadDoador"
+        android:text="Sou Doador!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_entrar" />
@@ -99,8 +99,8 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
-        android:text="Cadastrar Beneficiário"
         android:onClick="cadBeneficiario"
+        android:text="Sou Beneficiário!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_doador" />

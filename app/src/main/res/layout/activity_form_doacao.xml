@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,58 +22,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/formDoacao_doador"
+        android:id="@+id/formDoacao_data"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/formDoacao_texto">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/formDoacao_input_doador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Doador" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/formDoacao_data"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formDoacao_doador">
-
-        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/formDoacao_input_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Data"
-            android:inputType="date"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/formDoacao_tipo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formDoacao_data">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/formDoacao_input_tipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tipo" />
+            android:hint="Data da Entrega"
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +48,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formDoacao_tipo">
+        app:layout_constraintTop_toBottomOf="@+id/formDoacao_data">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/formDoacao_input_qtd"
@@ -96,23 +59,33 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/formDoacao_benef"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/formDoacao_rg_item"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formDoacao_qtd">
+        app:layout_constraintTop_toBottomOf="@+id/formDoacao_qtd"
+        android:orientation="horizontal">>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/formDoacao_input_benef"
+        <RadioButton
+            android:id="@+id/formDoacao_rb1_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cesta Básica" />
+
+        <RadioButton
+            android:id="@+id/formDoacao_rb2_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Beneficiário" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Kit Higiene"
+            android:textAlignment="viewStart"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/formDoacao_botao_salvar"
@@ -125,7 +98,7 @@
         android:text="Doar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formDoacao_benef" />
+        app:layout_constraintTop_toBottomOf="@+id/formDoacao_rg_item" />
 
     <Button
         android:id="@+id/formDoacao_botao_cancelar"

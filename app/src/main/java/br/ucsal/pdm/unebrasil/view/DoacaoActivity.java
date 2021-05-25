@@ -43,11 +43,10 @@ public class DoacaoActivity extends AppCompatActivity {
     }
 
     public void inicializacaoDosCampos() {
-        campoDoador = findViewById(R.id.formDoacao_input_doador);
         campoData = findViewById(R.id.formDoacao_input_data);
-        campoTipo = findViewById(R.id.formDoacao_input_tipo);
+        //campoTipo = findViewById(R.id.formDoacao_input_tipo);
         campoQtd = findViewById(R.id.formDoacao_input_qtd);
-        campoBeneficiario = findViewById(R.id.formDoacao_input_benef);
+        //campoBeneficiario = findViewById(R.id.formDoacao_input_benef);
     }
 
     public void carregaDoacao() {
