@@ -13,6 +13,7 @@
         android:theme="@style/Theme.UneBrasil">
         <activity android:name=".view.CadBeneficiarioActivity" />
         <activity android:name=".view.CadDoadorActivity" />
+        <activity android:name=".view.DadosIntituicaoActivity" />
         <activity android:name=".view.DoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
         <activity android:name=".view.ListaBenefActivity"/>
