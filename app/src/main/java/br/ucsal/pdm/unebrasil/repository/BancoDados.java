@@ -14,11 +14,14 @@ import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.repository.dao.BeneficiarioDAO;
 import br.ucsal.pdm.unebrasil.repository.dao.DoacaoDAO;
+import br.ucsal.pdm.unebrasil.repository.dao.DoadorDAO;
 
 @Database(entities = {Beneficiario.class, Doacao.class, Doador.class}, version = 1, exportSchema = false)
 public abstract class BancoDados extends RoomDatabase {
 
     public abstract DoacaoDAO getDoacaoDao();
+
+    public abstract DoadorDAO getDoadorDao();
 
     public abstract BeneficiarioDAO getBeneficiarioDao();
 

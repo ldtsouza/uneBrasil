@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UneBrasil">
-        <activity android:name=".view.CadBeneficiarioActivity" />
-        <activity android:name=".view.CadDoadorActivity" />
+        <activity android:name=".view.BeneficiarioActivity" />
+        <activity android:name=".view.DoadorActivity" />
         <activity android:name=".view.DadosIntituicaoActivity" />
         <activity android:name=".view.DoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />

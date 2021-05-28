@@ -62,7 +62,6 @@ public class DoacaoActivity extends AppCompatActivity {
     }
 
     private void preencherDadosDoacao() {
-
         DoacaoBuilder doacaoBuilder = DoacaoBuilder.novaDoacao();
 
         doacao = doacaoBuilder.mas()
@@ -94,7 +93,7 @@ public class DoacaoActivity extends AppCompatActivity {
         campoBeneficiario.setText(doacao.getBeneficiario());
     }
 
-    public void finalizaFormulario(View v) {
+    public void finalizaFormularioDoacao(View v) {
         preencherDadosDoacao();
         if(doacao.temIdValido()) {
             doacaoViewModel.atualizar(doacao);

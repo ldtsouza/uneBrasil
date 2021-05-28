@@ -2,11 +2,11 @@ package br.ucsal.pdm.unebrasil.model;
 
 public class DoacaoBuilder {
 
-    private static final String DEFAULT_DOADOR = "Fabiola";
+    private static final String DEFAULT_DOADOR = "Talita";
     private static final String DEFAULT_DATA = "02/01/2021";
     private static final String DEFAULT_TIPO = "Cesta Básica";
     private static final String DEFAULT_QUANTIDADE = "1";
-    private static final String DEFAULT_BENEFICIARIO = "Antonio";
+    private static final String DEFAULT_BENEFICIARIO = "Luís Antonio";
 
     private String doador = DEFAULT_DOADOR;
     private String data = DEFAULT_DATA;

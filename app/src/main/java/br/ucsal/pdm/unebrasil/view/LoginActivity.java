@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import br.ucsal.pdm.unebrasil.R;
-import br.ucsal.pdm.unebrasil.view.CadBeneficiarioActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,21 +21,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void cadBeneficiario(View view){
-        Intent intencao = new Intent(this, CadBeneficiarioActivity.class);
+        Intent intencao = new Intent(this, BeneficiarioActivity.class);
         startActivity(intencao);
     }
 
     public void cadDoador(View view){
-
-    Intent intencao = new Intent(this, CadDoadorActivity.class);
-    startActivity(intencao);
-}
+        Intent intencao = new Intent(this, DoadorActivity.class);
+        startActivity(intencao);
+    }
     public void validarLogin(View view){
         //Implementar regra de validação de login
         Intent intencao = new Intent(this, MainActivity.class);
         startActivity(intencao);
-
     }
-
-
 }

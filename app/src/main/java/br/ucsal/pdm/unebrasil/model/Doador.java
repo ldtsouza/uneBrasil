@@ -123,4 +123,8 @@ public class Doador {
                 ", data='" + data + '\'' +
                 '}';
     }
+
+    public boolean temIdValido() {
+        return id > 0;
+    }
 }
