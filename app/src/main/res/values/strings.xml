@@ -24,4 +24,6 @@
     <string name="edtInput_cadBene_telefone">Telefone</string>
     <string name="btn_cadBene_salvar">Salvar</string>
     <string name="btn_cadBene_cancelar">Cancelar</string>
+    <string name="edt_cadBene_senha">Senha</string>
+
 </resources>

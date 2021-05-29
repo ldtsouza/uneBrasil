@@ -38,20 +38,20 @@ public class BeneficiarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cad_beneficiario);
 
-        tilCPF = findViewById(R.id.til_cadDoador_CPFId);
-        tilNome = findViewById(R.id.til_cadDoador_nomeId);
-        tilEmail = findViewById(R.id.til_cadDoador_emailId);
-        tilTel = findViewById(R.id.til_cadDoador_telefoneId);
-        tilSenha = findViewById(R.id.til_cadDoador_senhaId);
+        tilCPF = findViewById(R.id.til_cadBene_cpfId);
+        tilNome = findViewById(R.id.til_cadBene_nomeId);
+        tilEmail = findViewById(R.id.til_cadBene_emailId);
+        tilTel = findViewById(R.id.til_cadBene_telefoneId);
+        tilSenha = findViewById(R.id.til_cadBene_senhaId);
 
-        edtCPF = findViewById(R.id.edtInput_cadDoador_CPFId);
-        edtNome = findViewById(R.id.edtInput_cadDoador_nomeId);
-        edtEmail = findViewById(R.id.edtInput_cadDoador_emailId);
-        edtTel = findViewById(R.id.edtInput_cadDoador_telefoneId);
-        edtSenha = findViewById(R.id.edtInput_cadDoador_senhaId);
+        edtCPF = findViewById(R.id.edtinput_cadBene_cpfId);
+        edtNome = findViewById(R.id.edtinput_cadBene_nomeId);
+        edtEmail = findViewById(R.id.edtinput_cadBene_emailId);
+        edtTel = findViewById(R.id.edtInput_cadBene_telefoneId);
+        edtSenha = findViewById(R.id.edtInput_cadBene_senhaId);
 
-        btnSalvar = findViewById(R.id.btn_cadDoador_salvarId);
-        btnCancelar = findViewById(R.id.btn_cadDoador_cancelarId);
+        btnSalvar = findViewById(R.id.btn_cadBene_salvarId);
+        btnCancelar = findViewById(R.id.btn_cadBenef_cancelarId);
 
         edtCPF.addTextChangedListener(MaskEditUtil.mask(edtCPF,MaskEditUtil.FORMAT_CPF));
         edtTel.addTextChangedListener(MaskEditUtil.mask(edtTel,MaskEditUtil.FORMAT_FONE));
