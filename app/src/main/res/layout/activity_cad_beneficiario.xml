@@ -6,43 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".view.BeneficiarioActivity">
 
-    <TextView
-        android:id="@+id/cad_benef_tit_principal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Dados Cadastrais - Beneficiário"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cad_benef_input_cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_benef_tit_principal">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cad_benef_input_et_cpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CPF" />
+            android:hint="@string/edtInput_cadBene_CPF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cad_benef_input_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,15 +43,17 @@
             android:id="@+id/cad_benef_input_et_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome Completo" />
+            android:hint="@string/edtInput_cadBene_nome" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cad_benef_input_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,15 +63,17 @@
             android:id="@+id/cad_benef_input_et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="@string/edtInput_cadBene_email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cad_benef_input_telefone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,25 +83,7 @@
             android:id="@+id/cad_benef_input_et_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_benef_input_senha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_benef_input_telefone">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_benef_input_et_senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Senha" />
+            android:hint="@string/edtInput_cadBene_telefone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -116,11 +93,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Salvar"
+        android:text="@string/btn_cadBene_salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_benef_input_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/cad_benef_input_telefone" />
 
     <Button
         android:id="@+id/cad_benef_button_cancelar"
@@ -128,10 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Cancelar"
+        android:text="@string/btn_cadBene_cancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cad_benef_button_salvar" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

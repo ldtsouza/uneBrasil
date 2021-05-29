@@ -18,4 +18,10 @@
     <string name="btn_caddoador_salvar">Salvar</string>
     <string name="btn_caddoador_cancelar">Cancelar</string>
     <string name="edtinput_cadDoador_senha">Senha</string>
+    <string name="edtInput_cadBene_CPF">CPF</string>
+    <string name="edtInput_cadBene_nome">Nome Completo</string>
+    <string name="edtInput_cadBene_email">Email</string>
+    <string name="edtInput_cadBene_telefone">Telefone</string>
+    <string name="btn_cadBene_salvar">Salvar</string>
+    <string name="btn_cadBene_cancelar">Cancelar</string>
 </resources>
