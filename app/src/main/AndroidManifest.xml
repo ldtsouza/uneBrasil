@@ -20,7 +20,7 @@
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.SplashActivity"
-           android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/AppCompat.TelaCheia">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

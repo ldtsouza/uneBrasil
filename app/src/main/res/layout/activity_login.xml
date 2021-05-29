@@ -19,9 +19,11 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_login_cpfId"
-        android:layout_width="0dp"
+        android:id="@+id/til_login_cpfId"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -33,38 +35,42 @@
             android:id="@+id/edtinput_login_cpfId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CPF" />
+            android:inputType="number"
+            android:hint="@string/edt_login_cpf" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_login_senhaId"
-        android:layout_width="0dp"
+        android:id="@+id/til_login_senhaId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_cpfId">
+        app:layout_constraintTop_toBottomOf="@+id/til_login_cpfId">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtinput_login_senhaId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Senha" />
+            android:hint="@string/edt_login_senha"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/tv_login_esquecisenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:onClick="esqueciMinhaSenha"
-        android:text="Esqueci minha senha"
+        android:text="@string/tv_login_esqueciSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_senhaId" />
+        app:layout_constraintTop_toBottomOf="@+id/til_login_senhaId" />
 
     <Button
         android:id="@+id/button_login_entrar"
@@ -74,7 +80,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="64dp"
         android:onClick="validarLogin"
-        android:text="Entrar"
+        android:text="@string/btn_login_entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_esquecisenha" />
@@ -87,7 +93,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
         android:onClick="cadDoador"
-        android:text="Sou Doador!"
+        android:text="@string/btn_login_doador"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_entrar" />
@@ -100,10 +106,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
         android:onClick="cadBeneficiario"
-        android:text="Sou Beneficiário!"
+        android:text="@string/btn_login_beneficiario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_doador" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

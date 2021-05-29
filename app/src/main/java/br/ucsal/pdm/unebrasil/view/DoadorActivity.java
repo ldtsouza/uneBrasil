@@ -6,13 +6,16 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.model.DoadorBuilder;
+import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
 
 import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOACAO;
 import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOADOR;
@@ -22,12 +25,21 @@ public class DoadorActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_NOVO_DOADOR = "Novo Doador";
     private static final String TITULO_APPBAR_EDITA_DOADOR = "Editar Doador";
 
-    private TextInputEditText campoCPF;
-    private TextInputEditText campoNome;
-    private TextInputEditText campoEmail;
-    private TextInputEditText campoCeular;
-    private TextInputEditText campoSenha;
-    private TextInputEditText campoData;
+    private TextInputLayout tilCPF;
+    private TextInputLayout tilNome;
+    private TextInputLayout tilEmail;
+    private TextInputLayout tilTel;
+    private TextInputLayout tilSenha;
+    private TextInputEditText edtCPF;
+    private TextInputEditText edtNome;
+    private TextInputEditText edtEmail;
+    private TextInputEditText edtTel;
+    private TextInputEditText edtSenha;
+    private Button btnSalvar;
+    private Button btnCancelar;
+    private boolean tudoOk;
+    private static String ERRO_CAMPO = "Campo obrigatório";
+
 
     private Doador doador;
     private DoadorViewModel doadorViewModel;
@@ -42,12 +54,63 @@ public class DoadorActivity extends AppCompatActivity {
     }
 
     public void inicializacaoDosCampos() {
-        campoCPF = findViewById(R.id.cad_doador_input_et_cpf);
-        campoNome = findViewById(R.id.cad_doador_input_et_nome);
-        campoEmail = findViewById(R.id.cad_doador_input_et_email);
-        campoCeular = findViewById(R.id.cad_doador_input_et_telefone);
-        campoSenha = findViewById(R.id.cad_doador_input_et_senha);
+        tilCPF = findViewById(R.id.til_cadDoador_CPFId);
+        tilNome = findViewById(R.id.til_cadDoador_nomeId);
+        tilEmail = findViewById(R.id.til_cadDoador_emailId);
+        tilTel = findViewById(R.id.til_cadDoador_telefoneId);
+        tilSenha = findViewById(R.id.til_cadDoador_senhaId);
+        edtCPF = findViewById(R.id.edtInput_cadDoador_CPFId);
+        edtNome = findViewById(R.id.edtInput_cadDoador_nomeId);
+        edtEmail = findViewById(R.id.edtInput_cadDoador_emailId);
+        edtTel = findViewById(R.id.edtInput_cadDoador_telefoneId);
+        edtSenha = findViewById(R.id.edtInput_cadDoador_senhaId);
+
+        btnSalvar = findViewById(R.id.btn_cadDoador_salvarId);
+        btnCancelar = findViewById(R.id.btn_cadDoador_cancelarId);
+
+        edtCPF.addTextChangedListener(MaskEditUtil.mask(edtCPF,MaskEditUtil.FORMAT_CPF));
+        edtTel.addTextChangedListener(MaskEditUtil.mask(edtTel,MaskEditUtil.FORMAT_FONE));
     }
+    public boolean verificarCampos() {
+        tudoOk = true;
+
+        if (edtCPF.getText().toString().trim().equals("")) {
+            tilCPF.setError(ERRO_CAMPO);
+            tudoOk = false;
+        }else {
+            tilCPF.setError(null);
+        }
+
+        if (edtNome.getText().toString().trim().equals("")) {
+            tilNome.setError(ERRO_CAMPO);
+            tudoOk = false;
+        }else {
+            tilNome.setError(null);
+        }
+
+        if (edtEmail.getText().toString().trim().equals("")) {
+            tilEmail.setError(ERRO_CAMPO);
+            tudoOk = false;
+        }else {
+            tilEmail.setError(null);
+        }
+
+        if (edtTel.getText().toString().trim().equals("")) {
+            tilTel.setError(ERRO_CAMPO);
+            tudoOk = false;
+        }else {
+            tilTel.setError(null);
+        }
+
+        if (edtSenha.getText().toString().trim().equals("")) {
+            tilSenha.setError(ERRO_CAMPO);
+            tudoOk = false;
+        }else {
+            tilSenha.setError(null);
+        }
+        return tudoOk;
+    }
+
 
     public void carregaDoador() {
         Intent dados = getIntent();
@@ -65,11 +128,11 @@ public class DoadorActivity extends AppCompatActivity {
         DoadorBuilder doadorBuilder = DoadorBuilder.novoDoador();
 
         doador = doadorBuilder.mas()
-                .comCPF(campoCPF.getText().toString())
-                .comNome(campoNome.getText().toString())
-                .comEmail(campoEmail.getText().toString())
-                .comCelular(campoCeular.getText().toString())
-                .comSenha(campoSenha.getText().toString())
+                .comCPF(edtCPF.getText().toString())
+                .comNome(edtNome.getText().toString())
+                .comEmail(edtEmail.getText().toString())
+                .comCelular(edtTel.getText().toString())
+                .comSenha(edtSenha.getText().toString())
                 .build();
     }
 
@@ -86,26 +149,30 @@ public class DoadorActivity extends AppCompatActivity {
     }
 
     public void finalizaFormularioDoador(View v) {
-        preencherDadosDoador();
-        if(doador.temIdValido()) {
-            doadorViewModel.atualizar(doador);
-        } else {
-            doadorViewModel.inserir(doador);
+        verificarCampos();
+
+        if (tudoOk) {
+            preencherDadosDoador();
+            if(doador.temIdValido()) {
+                doadorViewModel.atualizar(doador);
+            } else {
+                doadorViewModel.inserir(doador);
+            }
+            acessarLogin();
         }
-        acessarApp();
     }
 
-    private void acessarApp() {
-        Intent intencao = new Intent(this, MainActivity.class);
+    private void acessarLogin() {
+        Intent intencao = new Intent(this, LoginActivity.class);
         startActivity(intencao);
     }
 
     private void obterDadosDoador() {
-        campoCPF.setText(doador.getCpf());
-        campoNome.setText(doador.getNome());
-        campoEmail.setText(doador.getEmail());
-        campoCeular.setText(doador.getCelular());
-        campoSenha.setText(doador.getSenha());
+        edtCPF.setText(doador.getCpf());
+        edtNome.setText(doador.getNome());
+        edtEmail.setText(doador.getEmail());
+        edtTel.setText(doador.getCelular());
+        edtSenha.setText(doador.getSenha());
     }
 
     public void cancelarDoador(View v) {

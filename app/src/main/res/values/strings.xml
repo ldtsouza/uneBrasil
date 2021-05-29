@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Une Brasil</string>
+    <string name="edt_login_cpf">CPF</string>
+    <string name="edt_login_senha">Senha</string>
+    <string name="tv_login_esqueciSenha">Esqueci minha senha</string>
+    <string name="btn_login_entrar">Entrar</string>
+    <string name="btn_login_doador">Sou Doador!</string>
+    <string name="btn_login_beneficiario">Sou Beneficiário!</string>
+    <string name="erro_login_campo_obrigatorio">Preenchimento obrigatório</string>
+    <string name="tv_esquecisenha_texto1">Informe o e-mail cadastrado para reinicializar a senha</string>
+    <string name="edt_esquecisenha_email">E-mail</string>
+    <string name="btn_esquecisenha_enviar">Enviar</string>
+    <string name="tv_caddoador_texto1">Dados Cadastrais - Doador</string>
+    <string name="edtinput_cadDoador_cpf">CPF</string>
+    <string name="edtinput_caddoador_nomeComple">Nome Completo</string>
+    <string name="edtinput_caddoador_email">E-mail</string>
+    <string name="ediinput_caddoador_telefone">Telefone</string>
+    <string name="btn_caddoador_salvar">Salvar</string>
+    <string name="btn_caddoador_cancelar">Cancelar</string>
+    <string name="edtinput_cadDoador_senha">Senha</string>
 </resources>

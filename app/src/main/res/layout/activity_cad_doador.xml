@@ -6,133 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".view.DoadorActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_cadDoador_CPFId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Dados Cadastrais - Doador"
-        android:textSize="24sp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_doador_input_cpf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_doador_input_et_cpf"
+            android:id="@+id/edtInput_cadDoador_CPFId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CPF" />
+            android:hint="@string/edtinput_cadDoador_cpf"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_doador_input_nome"
+        android:id="@+id/til_cadDoador_nomeId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_input_cpf">
+        app:layout_constraintTop_toBottomOf="@+id/til_cadDoador_CPFId">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_doador_input_et_nome"
+            android:id="@+id/edtInput_cadDoador_nomeId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome Completo" />
+            android:hint="@string/edtinput_caddoador_nomeComple"
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_doador_input_email"
+        android:id="@+id/til_cadDoador_emailId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Email"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_input_nome">
+        app:layout_constraintTop_toBottomOf="@+id/til_cadDoador_nomeId">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_doador_input_et_email"
+            android:id="@+id/edtInput_cadDoador_emailId"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/edtinput_caddoador_email"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_doador_input_telefone"
+        android:id="@+id/til_cadDoador_telefoneId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_input_email">
+        app:layout_constraintTop_toBottomOf="@+id/til_cadDoador_emailId">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_doador_input_et_telefone"
+            android:id="@+id/edtInput_cadDoador_telefoneId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefone" />
+            android:hint="@string/ediinput_caddoador_telefone"
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cad_doador_input_senha"
+        android:id="@+id/til_cadDoador_senhaId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_input_telefone">
+        app:layout_constraintTop_toBottomOf="@+id/til_cadDoador_telefoneId">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_doador_input_et_senha"
+            android:id="@+id/edtInput_cadDoador_senhaId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Senha" />
+            android:hint="@string/edtinput_cadDoador_senha"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/cad_doador_button_salvar"
+        android:id="@+id/btn_cadDoador_salvarId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:onClick="finalizaFormularioDoador"
-        android:text="Salvar"
+        android:text="@string/btn_caddoador_salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_input_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/til_cadDoador_senhaId" />
 
     <Button
-        android:id="@+id/cad_doador_button_cancelar"
+        android:id="@+id/btn_cadDoador_cancelarId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:onClick="cancelarDoador"
-        android:text="Cancelar"
+        android:text="@string/btn_caddoador_cancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_doador_button_salvar" />
-
+        app:layout_constraintTop_toBottomOf="@+id/btn_cadDoador_salvarId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
