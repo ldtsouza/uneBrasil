@@ -1,7 +1,9 @@
 package br.ucsal.pdm.unebrasil.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,12 +12,16 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.ucsal.pdm.unebrasil.R;
+import br.ucsal.pdm.unebrasil.model.Beneficiario;
+import br.ucsal.pdm.unebrasil.model.BeneficiarioBuilder;
 import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
+
+import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_BENEFICIARIO;
 
 public class BeneficiarioActivity extends AppCompatActivity {
 
-    private static final String TITULO_APPBAR_NOVO_DOADOR = "Novo Beneficiario";
-    private static final String TITULO_APPBAR_EDITA_DOADOR = "Editar Beneficiario";
+    private static final String TITULO_APPBAR_NOVO_BENEFICIARIO = "Novo Beneficiario";
+    private static final String TITULO_APPBAR_EDITA_BENEFICIARIO = "Editar Beneficiario";
 
     private TextInputLayout tilCPF;
     private TextInputLayout tilNome;
@@ -27,17 +33,26 @@ public class BeneficiarioActivity extends AppCompatActivity {
     private TextInputEditText edtEmail;
     private TextInputEditText edtTel;
     private TextInputEditText edtSenha;
+
     private Button btnSalvar;
     private Button btnCancelar;
 
     private boolean tudoOk;
     private static String ERRO_CAMPO = "Campo obrigatório";
 
+    private Beneficiario beneficiario;
+    private BeneficiarioViewModel beneficiarioViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cad_beneficiario);
+        inicializacaoDosCampos();
+        carregaBeneficiario();
+        inicializacaoDoAdapter();
+    }
 
+    public void inicializacaoDosCampos() {
         tilCPF = findViewById(R.id.til_cadBene_cpfId);
         tilNome = findViewById(R.id.til_cadBene_nomeId);
         tilEmail = findViewById(R.id.til_cadBene_emailId);
@@ -55,20 +70,7 @@ public class BeneficiarioActivity extends AppCompatActivity {
 
         edtCPF.addTextChangedListener(MaskEditUtil.mask(edtCPF,MaskEditUtil.FORMAT_CPF));
         edtTel.addTextChangedListener(MaskEditUtil.mask(edtTel,MaskEditUtil.FORMAT_FONE));
-
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verificarCampos();
-
-                if (tudoOk) {
-                    //Local de implementação de salvamento e redirecionamento de tela
-                }
-            }
-        });
     }
-
-
 
     public boolean verificarCampos() {
         tudoOk = true;
@@ -76,35 +78,100 @@ public class BeneficiarioActivity extends AppCompatActivity {
         if (edtCPF.getText().toString().trim().equals("")) {
             tilCPF.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilCPF.setError(null);
         }
         if (edtNome.getText().toString().trim().equals("")) {
             tilNome.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilNome.setError(null);
         }
         if (edtEmail.getText().toString().trim().equals("")) {
             tilEmail.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilEmail.setError(null);
         }
         if (edtTel.getText().toString().trim().equals("")) {
             tilTel.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilTel.setError(null);
         }
         if (edtSenha.getText().toString().trim().equals("")) {
             tilSenha.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilSenha.setError(null);
         }
         return tudoOk;
     }
 
+    public void carregaBeneficiario() {
+        Intent dados = getIntent();
+        if (dados.hasExtra(CHAVE_BENEFICIARIO)) {
+            setTitle(TITULO_APPBAR_EDITA_BENEFICIARIO);
+            beneficiario = (Beneficiario) dados.getSerializableExtra(CHAVE_BENEFICIARIO);
+            obterDadosBeneficiario();
+        } else {
+            setTitle(TITULO_APPBAR_NOVO_BENEFICIARIO);
+            beneficiario = new Beneficiario();
+        }
+    }
 
+    private void preencherDadosBeneficiario() {
+        BeneficiarioBuilder beneficiarioBuilder = BeneficiarioBuilder.novoBeneficiario();
+
+        beneficiario = beneficiarioBuilder.mas()
+                .comCPF(edtCPF.getText().toString())
+                .comNome(edtNome.getText().toString())
+                .comEmail(edtEmail.getText().toString())
+                .comCelular(edtTel.getText().toString())
+                .comSenha(edtSenha.getText().toString())
+                .build();
+    }
+
+    public void inicializacaoDoAdapter() {
+        BeneficiarioCustomAdapter beneficiarioCustomAdapter = new BeneficiarioCustomAdapter(new BeneficiarioCustomAdapter.BeneficiarioDiff());
+
+        beneficiarioViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
+                .get(BeneficiarioViewModel.class);
+
+        beneficiarioViewModel.getBeneficiariosAll().observe(this, doadores -> {
+            beneficiarioCustomAdapter.submitList(doadores);
+        });
+    }
+
+    public void finalizaFormularioBeneficiario(View v) {
+        verificarCampos();
+
+        if (tudoOk) {
+            preencherDadosBeneficiario();
+            if(beneficiario.temIdValido()) {
+                beneficiarioViewModel.atualizar(beneficiario);
+            } else {
+                beneficiarioViewModel.inserir(beneficiario);
+            }
+            acessarLogin();
+        }
+    }
+
+    private void acessarLogin() {
+        Intent intencao = new Intent(this, LoginActivity.class);
+        startActivity(intencao);
+    }
+
+    private void obterDadosBeneficiario() {
+        edtCPF.setText(beneficiario.getCpf());
+        edtNome.setText(beneficiario.getNome());
+        edtEmail.setText(beneficiario.getEmail());
+        edtTel.setText(beneficiario.getCelular());
+        edtSenha.setText(beneficiario.getSenha());
+    }
+
+    public void cancelarBeneficiario(View v) {
+        finish();
+    }
 }

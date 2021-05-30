@@ -12,12 +12,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.ucsal.pdm.unebrasil.R;
-import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.model.DoadorBuilder;
 import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
 
-import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOACAO;
 import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOADOR;
 
 public class DoadorActivity extends AppCompatActivity {
@@ -35,11 +33,12 @@ public class DoadorActivity extends AppCompatActivity {
     private TextInputEditText edtEmail;
     private TextInputEditText edtTel;
     private TextInputEditText edtSenha;
+
     private Button btnSalvar;
     private Button btnCancelar;
+
     private boolean tudoOk;
     private static String ERRO_CAMPO = "Campo obrigatório";
-
 
     private Doador doador;
     private DoadorViewModel doadorViewModel;
@@ -71,46 +70,46 @@ public class DoadorActivity extends AppCompatActivity {
         edtCPF.addTextChangedListener(MaskEditUtil.mask(edtCPF,MaskEditUtil.FORMAT_CPF));
         edtTel.addTextChangedListener(MaskEditUtil.mask(edtTel,MaskEditUtil.FORMAT_FONE));
     }
+
     public boolean verificarCampos() {
         tudoOk = true;
 
         if (edtCPF.getText().toString().trim().equals("")) {
             tilCPF.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilCPF.setError(null);
         }
 
         if (edtNome.getText().toString().trim().equals("")) {
             tilNome.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilNome.setError(null);
         }
 
         if (edtEmail.getText().toString().trim().equals("")) {
             tilEmail.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilEmail.setError(null);
         }
 
         if (edtTel.getText().toString().trim().equals("")) {
             tilTel.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilTel.setError(null);
         }
 
         if (edtSenha.getText().toString().trim().equals("")) {
             tilSenha.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             tilSenha.setError(null);
         }
         return tudoOk;
     }
-
 
     public void carregaDoador() {
         Intent dados = getIntent();

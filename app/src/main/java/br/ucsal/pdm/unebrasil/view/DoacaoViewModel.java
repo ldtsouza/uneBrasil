@@ -8,9 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import br.ucsal.pdm.unebrasil.model.Beneficiario;
 import br.ucsal.pdm.unebrasil.model.Doacao;
-import br.ucsal.pdm.unebrasil.repository.RepositorioBeneficiario;
 import br.ucsal.pdm.unebrasil.repository.RepositorioDoacao;
 
 public class DoacaoViewModel extends AndroidViewModel {

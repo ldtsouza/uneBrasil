@@ -20,15 +20,21 @@ public class Beneficiario {
 
     private String celular;
 
+    private String senha;
+
+    private String data;
+
     public Beneficiario() {
     }
 
     @Ignore
-    public Beneficiario(String cpf, String nome, String email, String celular) {
+    public Beneficiario(String cpf, String nome, String email, String celular, String senha) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.celular = celular;
+        this.celular = celular;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -71,21 +77,39 @@ public class Beneficiario {
         this.celular = celular;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Beneficiario that = (Beneficiario) o;
         return id == that.id &&
-                cpf.equals(that.cpf) &&
-                nome.equals(that.nome) &&
+                Objects.equals(cpf, that.cpf) &&
+                Objects.equals(nome, that.nome) &&
                 Objects.equals(email, that.email) &&
-                Objects.equals(celular, that.celular);
+                Objects.equals(celular, that.celular) &&
+                Objects.equals(senha, that.senha) &&
+                Objects.equals(data, that.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cpf, nome, email, celular);
+        return Objects.hash(id, cpf, nome, email, celular, senha, data);
     }
 
     @Override
@@ -96,6 +120,12 @@ public class Beneficiario {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", celular='" + celular + '\'' +
+                ", senha='" + senha + '\'' +
+                ", data='" + data + '\'' +
                 '}';
+    }
+
+    public boolean temIdValido() {
+        return id > 0;
     }
 }
