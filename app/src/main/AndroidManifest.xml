@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ucsal.pdm.unebrasil">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,17 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UneBrasil">
+        <activity android:name=".view.DoacaoActivity"></activity>
         <activity android:name=".view.BeneficiarioActivity" />
         <activity android:name=".view.DoadorActivity" />
         <activity android:name=".view.DadosIntituicaoActivity" />
-        <activity android:name=".view.DoacaoActivity" />
+        <activity android:name=".view.FormDoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
-        <activity android:name=".view.ListaBenefActivity"/>
-        <activity android:name=".view.LoginActivity"/>
+        <activity android:name=".view.ListaBenefActivity" />
+        <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.SplashActivity"
+        <activity
+            android:name=".view.SplashActivity"
             android:theme="@style/AppCompat.TelaCheia">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

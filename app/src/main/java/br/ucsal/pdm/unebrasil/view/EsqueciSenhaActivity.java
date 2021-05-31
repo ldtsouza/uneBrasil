@@ -2,6 +2,7 @@ package br.ucsal.pdm.unebrasil.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.ucsal.pdm.unebrasil.R;
+import br.ucsal.pdm.unebrasil.model.Doacao;
 
 public class EsqueciSenhaActivity extends AppCompatActivity {
 

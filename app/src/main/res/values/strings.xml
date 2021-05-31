@@ -25,5 +25,13 @@
     <string name="btn_cadBene_salvar">Salvar</string>
     <string name="btn_cadBene_cancelar">Cancelar</string>
     <string name="edt_cadBene_senha">Senha</string>
+    <string name="edtInput_doacao_dataEntrega">Data da Entrega</string>
+    <string name="btn_doacao_agendar">Agendar Doação</string>
+    <string name="btn_doacao_cancelar">Cancelar</string>
+
+    <string-array name="TipoDoacao">
+        <item>Cesta Básica</item>
+        <item>Kit Higiene</item>
+    </string-array>
 
 </resources>
