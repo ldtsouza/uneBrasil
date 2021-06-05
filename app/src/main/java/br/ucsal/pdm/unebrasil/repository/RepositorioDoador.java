@@ -1,9 +1,11 @@
 package br.ucsal.pdm.unebrasil.repository;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ucsal.pdm.unebrasil.model.Doador;

@@ -17,8 +17,11 @@ public interface DoadorDAO {
     @Insert
     void insere(Doador... doador);
 
-    @Query("SELECT * FROM Doador")
+    @Query("SELECT * from Doador")
     LiveData<List<Doador>> obterTodos();
+
+    @Query("SELECT * from Doador where cpf=(:cpf) and senha=(:senha)")
+    Doador autenticar(String cpf, String senha);
 
     @Update
     void atualize(Doador... doador);
