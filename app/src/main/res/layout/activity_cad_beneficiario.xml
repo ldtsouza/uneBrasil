@@ -23,7 +23,8 @@
             android:id="@+id/edtinput_cadBene_cpfId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edtInput_cadBene_CPF" />
+            android:hint="@string/edtInput_cadBene_CPF"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,7 +44,8 @@
             android:id="@+id/edtinput_cadBene_nomeId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edtInput_cadBene_nome" />
+            android:hint="@string/edtInput_cadBene_nome"
+            android:inputType="textPersonName"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -83,7 +85,8 @@
             android:id="@+id/edtInput_cadBene_telefoneId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edtInput_cadBene_telefone" />
+            android:hint="@string/edtInput_cadBene_telefone"
+            android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
