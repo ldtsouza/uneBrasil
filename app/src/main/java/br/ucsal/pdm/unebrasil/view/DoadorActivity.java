@@ -1,15 +1,20 @@
 package br.ucsal.pdm.unebrasil.view;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Date;
 
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doador;
@@ -18,6 +23,7 @@ import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
 
 import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOADOR;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class DoadorActivity extends AppCompatActivity {
 
     private static final String TITULO_APPBAR_NOVO_DOADOR = "Novo Doador";
@@ -42,6 +48,9 @@ public class DoadorActivity extends AppCompatActivity {
 
     private Doador doador;
     private DoadorViewModel doadorViewModel;
+
+    Date data = new Date();
+    SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +133,9 @@ public class DoadorActivity extends AppCompatActivity {
     }
 
     private void preencherDadosDoador() {
+
+
+
         DoadorBuilder doadorBuilder = DoadorBuilder.novoDoador();
 
         doador = doadorBuilder.mas()
@@ -132,6 +144,7 @@ public class DoadorActivity extends AppCompatActivity {
                 .comEmail(edtEmail.getText().toString())
                 .comCelular(edtTel.getText().toString())
                 .comSenha(edtSenha.getText().toString())
+                .inscritoNaData(formatador.format(data))
                 .build();
     }
 

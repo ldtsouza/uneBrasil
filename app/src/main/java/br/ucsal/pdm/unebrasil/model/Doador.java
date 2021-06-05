@@ -29,12 +29,13 @@ public class Doador {
     }
 
     @Ignore
-    public Doador(String cpf, String nome, String email, String celular, String senha) {
+    public Doador(String cpf, String nome, String email, String celular, String senha, String data) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.celular = celular;
         this.senha = senha;
+        this.data = "01/06/2021";
     }
 
     public int getId() {
