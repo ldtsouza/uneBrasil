@@ -29,7 +29,6 @@ public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.Cus
 
     @Override
     public void onBindViewHolder(@NonNull MainCustomAdapter.CustomViewHolder holder, int position) {
-        holder.getTextViewBeneficiario().setText(getItem(position).getBeneficiario());
         holder.getTextViewData().setText(getItem(position).getDataDoacao());
         holder.getTextViewTipo().setText(getItem(position).getTipoDoacao());
         holder.getTextViewQtd().setText(getItem(position).getQtdDoacao());
@@ -37,14 +36,12 @@ public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.Cus
 
     class CustomViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView textViewBeneficiario;
         private TextView textViewData;
         private TextView textViewTipo;
         private TextView textViewQtd;
 
         public CustomViewHolder(@NonNull View view) {
             super(view);
-            textViewBeneficiario = itemView.findViewById(R.id.main_doador_list_benef);
             textViewData = itemView.findViewById(R.id.main_doador_list_data);
             textViewTipo = itemView.findViewById(R.id.main_doador_list_tipo);
             textViewQtd = itemView.findViewById(R.id.main_doador_list_qtd);
@@ -62,9 +59,6 @@ public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.Cus
             return textViewQtd;
         }
 
-        public TextView getTextViewBeneficiario() {
-            return textViewBeneficiario;
-        }
     }
 
     static class DoacaoDiff extends DiffUtil.ItemCallback<Doacao> {

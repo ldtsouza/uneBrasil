@@ -56,9 +56,11 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 });
                             } else {
+                                String cpf = doador.getCpf();
                                 String nome = doador.getNome();
                                 String data = doador.getData();
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                                        .putExtra("cpf", cpf)
                                         .putExtra("nome", nome)
                                         .putExtra("data", data));
                             }

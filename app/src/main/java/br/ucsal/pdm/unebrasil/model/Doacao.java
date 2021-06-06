@@ -19,8 +19,6 @@ public class Doacao {
 
     private String qtdDoacao;
 
-    private String beneficiario;
-
     public Doacao() {
     }
 
@@ -64,14 +62,6 @@ public class Doacao {
         this.qtdDoacao = qtdDoacao;
     }
 
-    public String getBeneficiario() {
-        return beneficiario;
-    }
-
-    public void setBeneficiario(String beneficiario) {
-        this.beneficiario = beneficiario;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,13 +71,12 @@ public class Doacao {
                 Objects.equals(doador, doacao.doador) &&
                 Objects.equals(dataDoacao, doacao.dataDoacao) &&
                 Objects.equals(tipoDoacao, doacao.tipoDoacao) &&
-                Objects.equals(qtdDoacao, doacao.qtdDoacao) &&
-                Objects.equals(beneficiario, doacao.beneficiario);
+                Objects.equals(qtdDoacao, doacao.qtdDoacao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, doador, dataDoacao, tipoDoacao, qtdDoacao, beneficiario);
+        return Objects.hash(id, doador, dataDoacao, tipoDoacao, qtdDoacao);
     }
 
     @Override
@@ -98,7 +87,6 @@ public class Doacao {
                 ", dataDoacao='" + dataDoacao + '\'' +
                 ", tipoDoacao='" + tipoDoacao + '\'' +
                 ", qtdDoacao='" + qtdDoacao + '\'' +
-                ", beneficiario='" + beneficiario + '\'' +
                 '}';
     }
 

@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.ucsal.pdm.unebrasil.R;
+import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.repository.BancoDados;
 import br.ucsal.pdm.unebrasil.repository.dao.DoadorDAO;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
 
+    private TextView tViewCPF;
     private TextView tViewDoador;
     private TextView tViewData;
 
@@ -95,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
     public void configurarDadosDoador() {
         String nome = getIntent().getStringExtra("nome");
         String data = getIntent().getStringExtra("data");
-
         tViewDoador.setText(nome);
         tViewData.setText(data);
 

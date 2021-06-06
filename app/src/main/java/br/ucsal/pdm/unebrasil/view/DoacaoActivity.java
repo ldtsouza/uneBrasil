@@ -115,21 +115,21 @@ public class DoacaoActivity extends AppCompatActivity {
         if (edtInput_dataEntrega.getText().toString().trim().equals("")) {
             til_dataEntrega.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             til_dataEntrega.setError(null);
         }
 
         if (edtInput_quant.getText().toString().trim().equals("")) {
             til_quant.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             til_quant.setError(null);
         }
 
         if (autoCompleteTextView.getText().toString().trim().equals("")) {
             til_doacao.setError(ERRO_CAMPO);
             tudoOk = false;
-        }else {
+        } else {
             til_doacao.setError(null);
         }
         return tudoOk;
@@ -153,14 +153,16 @@ public class DoacaoActivity extends AppCompatActivity {
                 + edtInput_dataEntrega.getText().toString() +
                 "doação" + autoCompleteTextView.getText().toString() +
                 "quantidade" + edtInput_quant.getText().toString());
+
         DoacaoBuilder doacaoBuilder = DoacaoBuilder.novaDoacao();
 
-        doacao = doacaoBuilder.mas()
+        String cpf = getIntent().getStringExtra("cpf");
 
+        doacao = doacaoBuilder.mas()
+                .doDoador(cpf)
                 .noDia(edtInput_dataEntrega.getText().toString())
                 .doTipo(autoCompleteTextView.getText().toString())
                 .comQtd(edtInput_quant.getText().toString())
-
                 .build();
     }
 

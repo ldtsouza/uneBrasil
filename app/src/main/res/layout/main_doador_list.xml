@@ -8,44 +8,17 @@
     android:background="#008037">
 
     <TextView
-        android:id="@+id/main_doador_list_tit_benef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Beneficiário:"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/main_doador_list_benef"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Beneficiário"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/main_doador_list_tit_benef"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/main_doador_list_tit_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Data da Entrega:"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_doador_list_benef" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/main_doador_list_data"
@@ -66,7 +39,7 @@
         android:id="@+id/main_doador_list_tit_tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Tipo"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -74,7 +47,7 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toStartOf="@+id/main_doador_list_tit_qtd"
         app:layout_constraintStart_toEndOf="@+id/main_doador_list_tit_data"
-        app:layout_constraintTop_toBottomOf="@+id/main_doador_list_benef" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/main_doador_list_tipo"

@@ -9,8 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.text.SimpleDateFormat;
-
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.DoacaoBuilder;
@@ -26,7 +24,6 @@ public class FormDoacaoActivity extends AppCompatActivity {
     private TextInputEditText campoData;
     private TextInputEditText campoTipo;
     private TextInputEditText campoQtd;
-    private TextInputEditText campoBeneficiario;
 
     private Doacao doacao;
     private DoacaoViewModel doacaoViewModel;
@@ -38,15 +35,11 @@ public class FormDoacaoActivity extends AppCompatActivity {
         inicializacaoDosCampos();
         carregaDoacao();
         inicializacaoDoAdapter();
-
-
     }
 
     public void inicializacaoDosCampos() {
         campoData = findViewById(R.id.formDoacao_input_data);
-        //campoTipo = findViewById(R.id.formDoacao_input_tipo);
         campoQtd = findViewById(R.id.formDoacao_input_qtd);
-        //campoBeneficiario = findViewById(R.id.formDoacao_input_benef);
     }
 
     public void carregaDoacao() {
@@ -69,7 +62,6 @@ public class FormDoacaoActivity extends AppCompatActivity {
                 .noDia(campoData.getText().toString())
                 .doTipo(campoTipo.getText().toString())
                 .comQtd(campoQtd.getText().toString())
-                .paraBeneficiario(campoBeneficiario.getText().toString())
                 .build();
     }
 
@@ -90,7 +82,6 @@ public class FormDoacaoActivity extends AppCompatActivity {
         campoData.setText(doacao.getDataDoacao());
         campoTipo.setText(doacao.getTipoDoacao());
         campoQtd.setText(doacao.getQtdDoacao());
-        campoBeneficiario.setText(doacao.getBeneficiario());
     }
 
     public void finalizaFormularioDoacao(View v) {
