@@ -1,5 +1,8 @@
 package br.ucsal.pdm.unebrasil.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -8,7 +11,7 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 @Entity
-public class Doador {
+public class Doador implements Parcelable {
 
     @PrimaryKey (autoGenerate = true)
     private int id;
@@ -37,6 +40,28 @@ public class Doador {
         this.senha = senha;
         this.data = "01/06/2021";
     }
+
+    protected Doador(Parcel in) {
+        id = in.readInt();
+        cpf = in.readString();
+        nome = in.readString();
+        email = in.readString();
+        celular = in.readString();
+        senha = in.readString();
+        data = in.readString();
+    }
+
+    public static final Creator<Doador> CREATOR = new Creator<Doador>() {
+        @Override
+        public Doador createFromParcel(Parcel in) {
+            return new Doador(in);
+        }
+
+        @Override
+        public Doador[] newArray(int size) {
+            return new Doador[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -128,5 +153,22 @@ public class Doador {
 
     public boolean temIdValido() {
         return id > 0;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(cpf);
+        parcel.writeString(nome);
+        parcel.writeString(email);
+        parcel.writeString(celular);
+        parcel.writeString(senha);
+        parcel.writeString(data);
     }
 }

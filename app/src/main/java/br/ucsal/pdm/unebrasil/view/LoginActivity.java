@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean tudoOk;
     private static String ERRO_CAMPO = "Campo obrigatório";
+    private static String ERRO_SENHA = "CPF ou Senha inválidos";
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -52,17 +53,13 @@ public class LoginActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(getApplicationContext(), "CPF ou Senha inválidos", Toast.LENGTH_LONG).show();
+                                        tilSenha.setError(ERRO_SENHA);
                                     }
                                 });
                             } else {
-                                String cpf = doador.getCpf();
-                                String nome = doador.getNome();
-                                String data = doador.getData();
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                                        .putExtra("cpf", cpf)
-                                        .putExtra("nome", nome)
-                                        .putExtra("data", data));
+                                startActivity(
+                                        new Intent(LoginActivity.this, MainActivity.class)
+                                        .putExtra("doador", doador));
                             }
                         }
                     }).start();

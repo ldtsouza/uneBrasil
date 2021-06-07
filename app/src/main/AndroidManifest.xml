@@ -15,7 +15,6 @@
         <activity android:name=".view.BeneficiarioActivity" />
         <activity android:name=".view.DoadorActivity" />
         <activity android:name=".view.DadosIntituicaoActivity" />
-        <activity android:name=".view.FormDoacaoActivity" />
         <activity android:name=".view.EsqueciSenhaActivity" />
         <activity android:name=".view.ListaBenefActivity" />
         <activity android:name=".view.LoginActivity" />

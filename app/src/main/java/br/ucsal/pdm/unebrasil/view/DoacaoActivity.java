@@ -23,6 +23,7 @@ import java.util.List;
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.DoacaoBuilder;
+import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
 
 import static br.ucsal.pdm.unebrasil.view.ConstantesActivities.CHAVE_DOACAO;
@@ -156,10 +157,10 @@ public class DoacaoActivity extends AppCompatActivity {
 
         DoacaoBuilder doacaoBuilder = DoacaoBuilder.novaDoacao();
 
-        String cpf = getIntent().getStringExtra("cpf");
+        Doador doadorLogado = getIntent().getExtras().getParcelable("doador");
 
         doacao = doacaoBuilder.mas()
-                .doDoador(cpf)
+                .doDoador(doadorLogado.getCpf().toString())
                 .noDia(edtInput_dataEntrega.getText().toString())
                 .doTipo(autoCompleteTextView.getText().toString())
                 .comQtd(edtInput_quant.getText().toString())

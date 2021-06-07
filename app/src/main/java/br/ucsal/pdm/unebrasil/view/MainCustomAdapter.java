@@ -1,11 +1,14 @@
 package br.ucsal.pdm.unebrasil.view;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +27,8 @@ public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.Cus
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_doador_list, parent, false);
-        return new CustomViewHolder(view);
+        CustomViewHolder customViewHolder = new CustomViewHolder(view, parent .getContext());
+        return customViewHolder;
     }
 
     @Override
@@ -40,11 +44,19 @@ public class MainCustomAdapter extends ListAdapter<Doacao, MainCustomAdapter.Cus
         private TextView textViewTipo;
         private TextView textViewQtd;
 
-        public CustomViewHolder(@NonNull View view) {
+        public CustomViewHolder(@NonNull View view, final Context context) {
             super(view);
             textViewData = itemView.findViewById(R.id.main_doador_list_data);
             textViewTipo = itemView.findViewById(R.id.main_doador_list_tipo);
             textViewQtd = itemView.findViewById(R.id.main_doador_list_qtd);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, DoacaoActivity.class);
+                    ((AppCompatActivity) context).startActivityForResult(intent, 0);
+                }
+            });
         }
 
         public TextView getTextViewData() {

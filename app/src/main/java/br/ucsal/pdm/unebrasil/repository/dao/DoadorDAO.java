@@ -1,5 +1,7 @@
 package br.ucsal.pdm.unebrasil.repository.dao;
 
+import android.os.Parcelable;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;

@@ -12,23 +12,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.List;
 
 import br.ucsal.pdm.unebrasil.R;
 import br.ucsal.pdm.unebrasil.model.Doacao;
 import br.ucsal.pdm.unebrasil.model.Doador;
 import br.ucsal.pdm.unebrasil.repository.BancoDados;
-import br.ucsal.pdm.unebrasil.repository.dao.DoadorDAO;
-import br.ucsal.pdm.unebrasil.utils.MaskEditUtil;
+import br.ucsal.pdm.unebrasil.repository.dao.DoacaoDAO;
 
 public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
 
-    private TextView tViewCPF;
     private TextView tViewDoador;
     private TextView tViewData;
+    private TextView tViewDoacoes;
+    private TextView tViewNivel;
+
+    Doador doadorLogado;
+    List<Doacao> listaDoacoes;
+    int doacoesRealizadas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         efetuarNovaDoacao();
         inicializacaoDosCampos();
         configurarDadosDoador();
+        obterQtdDoacoes();
+        efetuarCalculoNivel();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        configurarDadosDoador();
+        obterQtdDoacoes();
     }
 
     @Override
@@ -86,19 +99,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abreFomularioAdicionarDoacao() {
-        startActivity(new Intent(this, DoacaoActivity.class));
+        Intent intent = new Intent(this, DoacaoActivity.class).putExtra("doador", doadorLogado);
+        startActivityForResult(intent, 0);
     }
 
     public void inicializacaoDosCampos() {
         tViewDoador = findViewById(R.id.main_doador_nome);
         tViewData = findViewById(R.id.main_doador_inscrito);
+        tViewDoacoes = findViewById(R.id.main_doador_doacoes);
+        tViewNivel = findViewById(R.id.main_doador_nivel);
     }
 
     public void configurarDadosDoador() {
-        String nome = getIntent().getStringExtra("nome");
-        String data = getIntent().getStringExtra("data");
+        doadorLogado = getIntent().getExtras().getParcelable("doador");
+        String nome = doadorLogado.getNome();
+        String data = doadorLogado.getData();
         tViewDoador.setText(nome);
         tViewData.setText(data);
 
+    }
+
+    public void obterQtdDoacoes() {
+        String cpf = doadorLogado.getCpf();
+        BancoDados bancoDados = BancoDados.getInstance(getApplicationContext());
+        final DoacaoDAO doacaoDAO = bancoDados.getDoacaoDao();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                listaDoacoes = doacaoDAO.obterDoacoesPorCPF(cpf);
+                doacoesRealizadas = listaDoacoes.size();
+                tViewDoacoes.setText(String.valueOf(doacoesRealizadas));
+                efetuarCalculoNivel();
+            }
+        }).start();
+    }
+
+    public void efetuarCalculoNivel() {
+        if ((doacoesRealizadas > 0) && (doacoesRealizadas < 2)) {
+            tViewNivel.setText("Iniciante");
+        } else if((doacoesRealizadas >= 2) && (doacoesRealizadas <= 4)) {
+            tViewNivel.setText("Bronze");
+        } else if((doacoesRealizadas >= 5) && (doacoesRealizadas <= 7)) {
+            tViewNivel.setText("Prata");
+        } else {
+            tViewNivel.setText("Ouro");
+        }
     }
 }
